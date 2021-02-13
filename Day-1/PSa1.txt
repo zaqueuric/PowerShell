@@ -1,0 +1,17 @@
+Criate a variable
+	$variable="value"
+
+
+Show the value of the variable
+	$variable
+
+Variables:
+	$Velero_Resource_Group
+	$region
+	$AKS_Cluster_Name
+	
+
+velero install --provider azure --plugins velero/velero-plugin-for-microsoft-azure:v1.0.0 --bucket testakscontainer --secret-file ./credentials-velero --backup-location-config resourceGroup=aks-test,storageAccount=testnewakstorage[,subscriptionId=fe0f8c3a-1822-4eee-8e70-826d8af32379] --snapshot-location-config apiTimeout=2[,resourceGroup=aks-test,subscriptionId=fe0f8c3a-1822-4eee-8e70-826d8af32379]
+
+Throbolshoting
+kubectl -n velero get deploy velero -ojson jq .spec.template.spec.initContainers
